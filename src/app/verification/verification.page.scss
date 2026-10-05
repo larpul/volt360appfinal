@@ -1,0 +1,24 @@
+ion-header .header_text h2 {
+    max-width: calc(100% - 30px);
+}
+
+.form {
+    padding-top: 30px;
+    ion-item ion-input {
+        letter-spacing: 3px !important;
+    }
+}
+
+h3 {
+    margin: 0;
+    padding-top: 35px;
+    color: var(--text-light3);
+    font-size: 1rem;
+    line-height: 24px;
+    letter-spacing: .5px;
+    span {
+        color: var(--primary);
+        min-width: fit-content;
+        text-transform: uppercase;
+    }
+}

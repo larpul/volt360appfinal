@@ -1,0 +1,713 @@
+<ion-header class="bg_transparent">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <div class="title-inner d-flex">
+                <div class="app_logo">
+                    <img src="assets/images/logo.png" class="lightThemeImg">
+                    <img src="assets/images/logoForDarkTheme.png" class="darkThemeImg">
+                </div>
+
+                <div class="icon end" (click)="filter()">
+                    <img src="assets/images/ic_filter.png" class="lightThemeImg">
+                    <img src="assets/images/ic_filter_wt.png" class="darkThemeImg">
+                </div>
+            </div>
+        </ion-title>
+    </ion-toolbar>
+
+    <div class="search_box d-flex animate__animated animate__zoomIn" *ngIf="segment == 'near_by'">
+        <ion-icon class="zmdi zmdi-pin"></ion-icon>
+        <ion-searchbar mode="md" class="" searchIcon="hide" clear-icon="string" placeholder="{{'search_charhging_spot' | translate}}"></ion-searchbar>
+    </div>
+
+    <div class="add_destination animate__animated animate__zoomIn" *ngIf="segment == 'evroute'">
+        <div class="search_item d-flex">
+            <ion-searchbar mode="md" class="" searchIcon="hide" clear-icon="string" placeholder="{{'enter_strting_point' | translate}}">
+                <ion-icon class="zmdi zmdi-pin"></ion-icon>
+            </ion-searchbar>
+            <!-- <ion-icon class="zmdi zmdi-gps-dot ion-text-end end"></ion-icon> -->
+        </div>
+        <div class="dotts">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="search_item d-flex">
+            <ion-searchbar mode="md" class="" searchIcon="hide" clear-icon="string" placeholder="{{'enter_destion_point' | translate}}" value="">
+                <ion-icon class="zmdi zmdi-navigation"></ion-icon>
+            </ion-searchbar>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="bg_color" [ngSwitch]="segment" fullscreen>
+    <!-- NearBy section start -->
+    <div class="" *ngSwitchCase="'near_by'">
+        <div class="map center_img">
+            <img src="assets/images/map.png" class="map_img crop_img lightThemeImg">
+            <img src="assets/images/map-dark.png" class="map_img crop_img darkThemeImg">
+        </div>
+
+        <div class="">
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:23%; left: 12%;" [ngClass]="showSpot1 ? 'active' : '' " (click)="showSpotToggle1()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:30%; left: 60%;" [ngClass]="showSpot2 ? 'active' : '' " (click)="showSpotToggle2()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:33%; left: 28%;" [ngClass]="showSpot3 ? 'active' : '' " (click)="showSpotToggle3()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:45%; left: 70%;" [ngClass]="showSpot4 ? 'active' : '' " (click)="showSpotToggle4()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:55%; left: 21%;" [ngClass]="showSpot5 ? 'active' : '' " (click)="showSpotToggle5()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:61%; left: 82%;" [ngClass]="showSpot6 ? 'active' : '' " (click)="showSpotToggle6()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:72%; left: 12%;" [ngClass]="showSpot7 ? 'active' : '' " (click)="showSpotToggle7()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+
+            <div class="my_location animate__animated animate__zoomIn" style="top:70%; left: 40%;">
+                <div class="animation_box a"></div>
+                <div class="animation_box b"></div>
+                <ion-icon class="zmdi zmdi-navigation"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <!-- NearBy section end -->
+
+    <!-- Evroute section start -->
+    <div class="" *ngSwitchCase="'evroute'">
+        <div class="map center_img">
+            <img src="assets/images/map.png" class="map_img crop_img lightThemeImg">
+            <img src="assets/images/map-dark.png" class="map_img crop_img darkThemeImg">
+        </div>
+
+        <div class="">
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:23%; left: 12%;" [ngClass]="showSpot1 ? 'active' : '' " (click)="showSpotToggle1()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:30%; left: 60%;" [ngClass]="showSpot2 ? 'active' : '' " (click)="showSpotToggle2()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:33%; left: 28%;" [ngClass]="showSpot3 ? 'active' : '' " (click)="showSpotToggle3()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:45%; left: 70%;" [ngClass]="showSpot4 ? 'active' : '' " (click)="showSpotToggle4()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:55%; left: 21%;" [ngClass]="showSpot5 ? 'active' : '' " (click)="showSpotToggle5()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:61%; left: 82%;" [ngClass]="showSpot6 ? 'active' : '' " (click)="showSpotToggle6()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+            <div class="charging_spot animate__animated animate__zoomIn" style="top:72%; left: 12%;" [ngClass]="showSpot7 ? 'active' : '' " (click)="showSpotToggle7()">
+                <img src="assets/images/pin.png" class="before">
+                <img src="assets/images/pin_spotactive.png" class="after">
+                <div class="tool_teep">
+                    <h3>3.8 km(10 min)</h3>
+                </div>
+            </div>
+
+            <div class="my_location animate__animated animate__zoomIn" style="top:70%; left: 40%;">
+                <div class="animation_box a"></div>
+                <div class="animation_box b"></div>
+                <ion-icon class="zmdi zmdi-navigation"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <!-- Evroute section end -->
+
+    <!-- Favorite section start -->
+    <ion-list lines="none" *ngSwitchCase="'favorite'">
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_1.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>Business Center</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>8 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_2.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'closed' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>CCD Basement</h2>
+                    <h3>Call enter Park, Business Streetm New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>12 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_4.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>Amusive Park</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>10 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_3.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>CCD Basement</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>4 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_1.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>Business Center</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>8 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_2.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'closed' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>CCD Basement</h2>
+                    <h3>Call enter Park, Business Streetm New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>12 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_4.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>Amusive Park</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>10 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+            <div class="item_inner">
+                <div class="item_img center_img">
+                    <img src="assets/images/spot_img/img_3.png" class="crop_img">
+                    <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                        <div class="spot_status">
+                            {{'open' | translate}}
+                        </div>
+                        <ion-icon class="zmdi zmdi-favorite end"></ion-icon>
+                    </div>
+                </div>
+                <div class="itme_text">
+                    <h2>CCD Basement</h2>
+                    <h3>A23, World Trade Park, New York</h3>
+
+                    <div class="facility">
+                        <ion-row>
+                            <ion-col size="4">
+                                <h3>{{'connections' | translate}}</h3>
+                                <h2>4 Points</h2>
+                            </ion-col>
+                            <ion-col size="5">
+                                <h3>{{'amenities' | translate}}</h3>
+                                <h2 class="d-flex">
+                                    <img src="assets/images/amenities/ic_washroom.png">
+                                    <img src="assets/images/amenities/ic_food.png">
+                                    <img src="assets/images/amenities/ic_shopping.png">
+                                    <img src="assets/images/amenities/ic_pharmacy.png">
+                                </h2>
+                            </ion-col>
+                            <ion-col size="3">
+                                <h2 class="d-flex">
+                                    <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <!-- Favorite section end -->
+</ion-content>
+
+<ion-footer class="ion-no-border" [ngClass]="spotsSliderClass ? 'active' : '' ">
+    <ion-segment [(ngModel)]="segment" lines="none">
+        <ion-segment-button value="near_by">
+            <ion-label class="d-flex">
+                <ion-icon class="zmdi zmdi-pin"></ion-icon> {{'near_by' | translate}}
+            </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="evroute">
+            <ion-label class="d-flex">
+                <ion-icon class="zmdi zmdi-navigation"></ion-icon> {{'evroute' | translate}}
+            </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="favorite">
+            <ion-label class="d-flex">
+                <ion-icon class="zmdi zmdi-favorite"></ion-icon> {{'favorite' | translate}}
+            </ion-label>
+        </ion-segment-button>
+    </ion-segment>
+</ion-footer>
+
+
+<div class="spots_slider" [ngClass]="spotsSliderClass ? 'active' : '' ">
+    <div class="closedSpotsSlider" (click)="closedSpotsSlider()">
+        <ion-icon class="zmdi zmdi-close"></ion-icon>
+    </div>
+    <ion-list lines="none">
+        <ion-slides pager="false">
+            <ion-slide>
+                <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+                    <div class="item_inner">
+                        <div class="item_img center_img">
+                            <img src="assets/images/spot_img/img_1.png" class="crop_img">
+                            <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                                <div class="spot_status">
+                                    {{'open' | translate}}
+                                </div>
+                                <ion-icon class="zmdi zmdi-favorite-outline end" style="color: var(--white); padding:2px;"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="itme_text">
+                            <h2>Business Center</h2>
+                            <h3>A23, World Trade Park, New York</h3>
+
+                            <div class="facility">
+                                <ion-row>
+                                    <ion-col size="4">
+                                        <h3>{{'connections' | translate}}</h3>
+                                        <h2>8 Points</h2>
+                                    </ion-col>
+                                    <ion-col size="5">
+                                        <h3>{{'amenities' | translate}}</h3>
+                                        <h2 class="d-flex">
+                                            <img src="assets/images/amenities/ic_washroom.png">
+                                            <img src="assets/images/amenities/ic_food.png">
+                                            <img src="assets/images/amenities/ic_shopping.png">
+                                            <img src="assets/images/amenities/ic_pharmacy.png">
+                                        </h2>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                        <h2 class="d-flex">
+                                            <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-slide>
+            <ion-slide>
+                <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+                    <div class="item_inner">
+                        <div class="item_img center_img">
+                            <img src="assets/images/spot_img/img_2.png" class="crop_img">
+                            <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                                <div class="spot_status">
+                                    {{'closed' | translate}}
+                                </div>
+                                <ion-icon class="zmdi zmdi-favorite-outline end" style="color: var(--white); padding:2px;"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="itme_text">
+                            <h2>CCD Basement</h2>
+                            <h3>Call enter Park, Business Streetm New York</h3>
+
+                            <div class="facility">
+                                <ion-row>
+                                    <ion-col size="4">
+                                        <h3>{{'connections' | translate}}</h3>
+                                        <h2>12 Points</h2>
+                                    </ion-col>
+                                    <ion-col size="5">
+                                        <h3>{{'amenities' | translate}}</h3>
+                                        <h2 class="d-flex">
+                                            <img src="assets/images/amenities/ic_washroom.png">
+                                            <img src="assets/images/amenities/ic_food.png">
+                                            <img src="assets/images/amenities/ic_shopping.png">
+                                            <img src="assets/images/amenities/ic_pharmacy.png">
+                                        </h2>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                        <h2 class="d-flex">
+                                            <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+                    <div class="item_inner">
+                        <div class="item_img center_img">
+                            <img src="assets/images/spot_img/img_4.png" class="crop_img">
+                            <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                                <div class="spot_status">
+                                    {{'open' | translate}}
+                                </div>
+                                <ion-icon class="zmdi zmdi-favorite-outline end" style="color: var(--white); padding:2px;"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="itme_text">
+                            <h2>Amusive Park</h2>
+                            <h3>A23, World Trade Park, New York</h3>
+
+                            <div class="facility">
+                                <ion-row>
+                                    <ion-col size="4">
+                                        <h3>{{'connections' | translate}}</h3>
+                                        <h2>10 Points</h2>
+                                    </ion-col>
+                                    <ion-col size="5">
+                                        <h3>{{'amenities' | translate}}</h3>
+                                        <h2 class="d-flex">
+                                            <img src="assets/images/amenities/ic_washroom.png">
+                                            <img src="assets/images/amenities/ic_food.png">
+                                            <img src="assets/images/amenities/ic_shopping.png">
+                                            <img src="assets/images/amenities/ic_pharmacy.png">
+                                        </h2>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                        <h2 class="d-flex">
+                                            <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-item class="animate__animated animate__fadeInUp" (click)="chargeSpotInfo()">
+                    <div class="item_inner">
+                        <div class="item_img center_img">
+                            <img src="assets/images/spot_img/img_3.png" class="crop_img">
+                            <div class="d-flex" style="position: relative; z-index: 99; align-items: flex-start;">
+                                <div class="spot_status">
+                                    {{'open' | translate}}
+                                </div>
+                                <ion-icon class="zmdi zmdi-favorite-outline end" style="color: var(--white); padding:2px;"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="itme_text">
+                            <h2>CCD Basement</h2>
+                            <h3>A23, World Trade Park, New York</h3>
+
+                            <div class="facility">
+                                <ion-row>
+                                    <ion-col size="4">
+                                        <h3>{{'connections' | translate}}</h3>
+                                        <h2>4 Points</h2>
+                                    </ion-col>
+                                    <ion-col size="5">
+                                        <h3>{{'amenities' | translate}}</h3>
+                                        <h2 class="d-flex">
+                                            <img src="assets/images/amenities/ic_washroom.png">
+                                            <img src="assets/images/amenities/ic_food.png">
+                                            <img src="assets/images/amenities/ic_shopping.png">
+                                            <img src="assets/images/amenities/ic_pharmacy.png">
+                                        </h2>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                        <h2 class="d-flex">
+                                            <ion-icon class="zmdi zmdi-navigation end"></ion-icon>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-slide>
+        </ion-slides>
+    </ion-list>
+
+</div>

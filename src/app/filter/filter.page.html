@@ -1,0 +1,185 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <div class="title-inner d-flex">
+                <span>{{"filters" | translate}}</span>
+                <strong class="end" (click)="save()">{{"apply" | translate}}</strong>
+            </div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_white" fullscreen>
+    <div class="form">
+        <ion-list lines="none">
+            <h2>{{"connection_type" | translate}}</h2>
+            <ion-radio-group class="connection_type">
+                <ion-row>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>J-1772</ion-label>
+                                <ion-radio checked="true" value="1"></ion-radio>
+                                <img src="assets/images/plugType/img_J-1772.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>Tesla</ion-label>
+                                <ion-radio value="2"></ion-radio>
+                                <img src="assets/images/plugType/img_Tesla.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>Mennekes</ion-label>
+                                <ion-radio value="3"></ion-radio>
+                                <img src="assets/images/plugType/img_Mennekes.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>CCS2</ion-label>
+                                <ion-radio value="4"></ion-radio>
+                                <img src="assets/images/plugType/img_CCS2.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>Chandemo</ion-label>
+                                <ion-radio value="5"></ion-radio>
+                                <img src="assets/images/plugType/img_Mennekes.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="4" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>CCS2 2</ion-label>
+                                <ion-radio value="6"></ion-radio>
+                                <img src="assets/images/plugType/img_CCS2.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-radio-group>
+
+            <div class="speeds">
+                <h2>{{"speeds" | translate}}</h2>
+                <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                    <div class="item_inner d-flex">
+                        <ion-checkbox checked="false"></ion-checkbox>
+                        <h3>Standard (3.7 kw)</h3>
+                    </div>
+                </ion-item>
+                <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                    <div class="item_inner d-flex">
+                        <ion-checkbox checked="true"></ion-checkbox>
+                        <h3>Semi Fast (3.7 - 20 kw)</h3>
+                    </div>
+                </ion-item>
+                <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                    <div class="item_inner d-flex">
+                        <ion-checkbox checked="false"></ion-checkbox>
+                        <h3>Fast (20-43 kw)</h3>
+                    </div>
+                </ion-item>
+                <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                    <div class="item_inner d-flex">
+                        <ion-checkbox checked="false"></ion-checkbox>
+                        <h3>Ultra Fast (> 43 kw)</h3>
+                    </div>
+                </ion-item>
+            </div>
+
+            <div class="amenities">
+                <h2>{{"amenities" | translate}}</h2>
+                <ion-row>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="true"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_washroom.png">
+                                <h3 class="ion-text-center">{{"washroom" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="false"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_food.png">
+                                <h3 class="ion-text-center">{{"foods" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="false"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_shopping.png">
+                                <h3 class="ion-text-center">{{"shopping" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="true"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_pharmacy.png">
+                                <h3 class="ion-text-center">{{"pharmaccy" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="false"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_pharmacy.png">
+                                <h3 class="ion-text-center">{{"pharmaccy" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="true"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_wifi.png">
+                                <h3 class="ion-text-center">{{"wifi" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="false"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_washroom.png">
+                                <h3 class="ion-text-center">{{"washroom" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-checkbox checked="false"></ion-checkbox>
+                                <img src="assets/images/amenities/ic_food.png">
+                                <h3 class="ion-text-center">{{"baverages" | translate}}</h3>
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-list>
+    </div>
+</ion-content>

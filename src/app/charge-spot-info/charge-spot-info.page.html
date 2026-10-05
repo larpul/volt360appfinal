@@ -1,0 +1,199 @@
+<ion-header class="bg_transparent">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back-outline"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <div class="banner">
+        <div class="img_box center_img">
+            <img src="assets/images/spot_img/img_1.png" class="crop_img">
+        </div>
+        <div class="text_box">
+            <h1 class="animate__animated animate__fadeInUp">Business Center</h1>
+            <h2 class="animate__animated animate__fadeInUp">A23, Word Trade Park, New York</h2>
+            <h3 class="d-flex animate__animated animate__fadeInUp">
+                <strong>
+                  {{'open' | translate}}&nbsp;&nbsp;.&nbsp;&nbsp;
+                </strong> 08:00 am - 20:00 pm
+                <span class="end" [ngClass]="favoriteClass ? 'favoriteClass active' : 'favoriteClass'" (click)="addTofavorite()">
+                    <ion-icon class="zmdi zmdi-favorite-outline animate__animated animate__zoomIn" ></ion-icon>
+                    <ion-icon class="zmdi zmdi-favorite animate__animated animate__zoomIn"></ion-icon>
+                </span>
+            </h3>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="bg_white" fullscreen>
+    <div class="form">
+        <ion-list lines="none">
+            <h2>{{"connection_available" | translate}}</h2>
+            <ion-radio-group class="connection_type">
+                <ion-row>
+                    <ion-col size="6" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>
+                                    J-1772
+                                    <h3>55 kw ($0.05/kw)</h3>
+                                </ion-label>
+                                <h4>2 {{"points" | translate}}</h4>
+                                <img src="assets/images/plugType/img_J-1772.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="6" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>
+                                    Tesla
+                                    <h3>34 kw ($0.02/kw)</h3>
+                                </ion-label>
+                                <h4>2 {{"points" | translate}}</h4>
+                                <img src="assets/images/plugType/img_Tesla.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="6" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>CCS2
+                                    <h3>55 kw ($0.05/kw)</h3>
+                                </ion-label>
+                                <h4>1 {{"points" | translate}}</h4>
+                                <img src="assets/images/plugType/img_CCS2.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="6" class="animate__animated animate__zoomIn">
+                        <ion-item lines="none">
+                            <div class="item_inner">
+                                <ion-label>Mennekes
+                                    <h3>34 kw ($0.02/kw)</h3>
+                                </ion-label>
+                                <h4>3 {{"points" | translate}}</h4>
+                                <img src="assets/images/plugType/img_Mennekes.png">
+                            </div>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-radio-group>
+        </ion-list>
+    </div>
+
+    <div class="amenities">
+        <h2>{{"amenities" | translate}}</h2>
+        <div class="scroll_box">
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_washroom.png">
+                <h3 class="ion-text-center">{{"washroom" | translate}}</h3>
+            </div>
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_food.png">
+                <h3 class="ion-text-center">{{"foods" | translate}}</h3>
+            </div>
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_shopping.png">
+                <h3 class="ion-text-center">{{"shopping" | translate}}</h3>
+            </div>
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_pharmacy.png">
+                <h3 class="ion-text-center">{{"pharmaccy" | translate}}</h3>
+            </div>
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_wifi.png">
+                <h3 class="ion-text-center">{{"wifi" | translate}}</h3>
+            </div>
+            <div class="amenities_box animate__animated animate__zoomIn">
+                <img src="assets/images/amenities/ic_food.png">
+                <h3 class="ion-text-center">{{"baverages" | translate}}</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form recent_check_ins">
+        <ion-list lines="none">
+            <h2>{{"recent_check_ins" | translate}}</h2>
+            <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                <div class="item-inner">
+                    <div class="item_header d-flex">
+                        <div class="img_box center_img">
+                            <img src="assets/images/user_profile/1.png" class="crop_img">
+                        </div>
+                        <div class="text_box">
+                            <h3>Emili Williamson</h3>
+                            <h4 class="d-flex">Tesla Model
+                                <span class="end">14 Jun</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="item_content">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        <div class="img_container d-flex">
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/3.png" class="crop_img">
+                            </div>
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/2.png" class="crop_img">
+                            </div>
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/1.png" class="crop_img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                <div class="item-inner">
+                    <div class="item_header d-flex">
+                        <div class="img_box center_img">
+                            <img src="assets/images/user_profile/2.png" class="crop_img">
+                        </div>
+                        <div class="text_box">
+                            <h3>Emili Williamson</h3>
+                            <h4 class="d-flex">Tesla Model
+                                <span class="end">14 Jun</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="item_content">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        <div class="img_container d-flex">
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/3.png" class="crop_img">
+                            </div>
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/2.png" class="crop_img">
+                            </div>
+                            <div class="img-box center_img">
+                                <img src="assets/images/spot_img/1.png" class="crop_img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+
+<ion-footer class="ion-no-border animate__animated animate__fadeInUp">
+    <ion-row>
+        <ion-col size="6" (click)="add_check_in()">
+            <ion-button size="large" shape="full" class="btn add_check_in">
+                <ion-icon class="zmdi zmdi-nature-people ion-text-start"></ion-icon>
+                {{'add_check_in' | translate}}
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button size="large" shape="full" class="btn">
+                <ion-icon class="zmdi zmdi-navigation ion-text-start"></ion-icon>
+                {{'get_direction' | translate}}
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

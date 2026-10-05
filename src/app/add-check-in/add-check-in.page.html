@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{"add_check_in" | translate}}
+        </ion-title>
+    </ion-toolbar>
+    <div class="banner d-flex">
+        <div class="header_text">
+            <h2 class="animate__animated animate__fadeInUp">
+                A233, World Trade Park
+            </h2>
+            <h1 class="animate__animated animate__fadeInUp">
+                Business Center
+            </h1>
+        </div>
+
+        <img src="assets/images/vector_checkin.png" class="end">
+    </div>
+
+</ion-header>
+
+<ion-content class="bg_white" fullscreen>
+    <div class="form">
+        <ion-list lines="none">
+            <ion-item lines="none" class="animate__animated animate__fadeInUp">
+                <div class="item_inner">
+                    <ion-label>{{'share_your_experience' | translate}}</ion-label>
+                    <div class="input_box">
+                        <ion-textarea type="text" rows="5" value="" placeholder="{{ 'enter_word_about' | translate}} EV Spot"></ion-textarea>
+                    </div>
+                </div>
+            </ion-item>
+
+            <ion-item lines="none" class="add_photos animate__animated animate__fadeInUp">
+                <div class="item_inner">
+                    <ion-label>{{'add_photos' | translate}} <span>({{'optional' | translate}})</span></ion-label>
+                    <div class="input_box">
+                        <div class="text_box">
+                            <ion-icon class="zmdi zmdi-camera"></ion-icon>
+                            <h3 class="">
+                                {{'upload_photo_or_video' | translate}}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <!-- <ion-button size="large" shape="block" class="btn animate__animated animate__fadeInUp" (click)="home()">{{'submit' | translate}}</ion-button> -->
+    <ion-button size="large" shape="block" class="btn animate__animated animate__fadeInUp">{{'submit' | translate}}</ion-button>
+</ion-footer>

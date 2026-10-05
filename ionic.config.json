@@ -1,0 +1,7 @@
+{
+  "name": "Pluppvapp",
+  "integrations": {
+    "react": {}
+  },
+  "type": "react"
+}
